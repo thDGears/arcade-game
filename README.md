@@ -4,7 +4,7 @@ This is the third project of the **Udacity Front End Track**.
 
 ## Description
 
-This is the classic arcade game "Froger game", where the player needs to get to the water without been detected by the enemy.
+This is a classic arcade game, where the player needs to get to the water without been detected by the enemy.
 
 You have to pass through the enemy in order to get to the water, each time you get there you'll get one point.
 If the enemy spotted you, you'll be relocated to your initial position and you will lose all of your points.
