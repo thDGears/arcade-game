@@ -9,6 +9,8 @@ This is the classic arcade game "Froger game", where the player needs to get to 
 You have to pass through the enemy in order to get to the water, each time you get there you'll get one point.
 If the enemy spotted you, you'll be relocated to your initial position and you will lose all of your points.
 
+Just use the **ARROW KEYS** on your keyboard to move the player.
+
 I'll be adding new features in the next update such; 
 * Select player
 * Timer
