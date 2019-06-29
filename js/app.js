@@ -1,3 +1,5 @@
+'use strict';
+
 // Create a SCORE panel
 let score = 0;
 const span = document.createElement('span');
@@ -69,16 +71,16 @@ const Player = function(x, y, speed) {
 
 Player.prototype.update = function() {};
 
-// Load the player's image
+// Draw the player on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Handle keyboard inputs
+// Ensure that the player won't go offscreen (left, right & down sides)
 Player.prototype.handleInput = function(key) {
     if (key === 'left') {
         this.x = (this.x <= 0) ? 0 : this.x - 101;
-        console.log(this.x);
     } else if (key === 'up') {
         this.y = this.y - 85;
     } else if (key === 'right') { 
@@ -104,15 +106,15 @@ const player = new Player(202, 398, 45);
 let allEnemies = [];
 
 // Initializing the speed
-function initializeSpeed() {
+function initialSpeed() {
     return Math.floor(Math.random() * 300) + 100;
 }
 
 // Create a new enemy objects
 allEnemies.push(
-    new Enemy(-101, enemyPosition[Math.floor(Math.random() * 3)], initializeSpeed()),
-    new Enemy(-101, enemyPosition[Math.floor(Math.random() * 3)], initializeSpeed()),
-    new Enemy(-101, enemyPosition[Math.floor(Math.random() * 3)], initializeSpeed())
+    new Enemy(-101, enemyPosition[Math.floor(Math.random() * 3)], initialSpeed()),
+    new Enemy(-101, enemyPosition[Math.floor(Math.random() * 3)], initialSpeed()),
+    new Enemy(-101, enemyPosition[Math.floor(Math.random() * 3)], initialSpeed())
 );
 
 // This listens for key presses and sends the keys to your
@@ -130,6 +132,7 @@ document.addEventListener('keyup', function(e) {
 
 // If game won, update status; SCORE & Player Position
 function win() {
+    console.log('WIN: ' + score);
     score++;
     span.textContent = 'Score: ' + score;
     player.reset();
